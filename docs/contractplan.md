@@ -54,7 +54,11 @@ during the creation of your research project and bachelor’s thesis.
 
 You have received your research question from your teachers, from an internship company, from someone else … but now you need to get some more information about this topic. Most likely, you’ll already have a little bit of knowledge about this. In some cases, it’s a completely new topic. Maybe the question that you have received is still too broad, wide, or generic. You’ll have to dive deeper into your topic to get comfortable.
 
-Read, read and read some sources and fetch information. Keep track of all the sources you have encountered during your research. The more you read into your topic, the clearer your vision will get. As it gets clearer, you can easily define your topic further. Narrowing down is very important: What exactly are you going to research? Where is your topic located? What perspective are you going to research? Who are the actors that benefit from this research? …
+Read, read and read some sources and fetch information. Keep track of all the sources you have encountered during your research. The more you read into your topic, the clearer your vision will get. As it gets clearer, you can easily define your topic further. Narrowing down is very important:
+- What exactly are you going to research?
+- Where is your topic located?
+- What perspective are you going to research?
+- Who are the actors that benefit from this research?
 
 ### 2.2 REASEARCH QUESTION AND SUBQUESTIONS
 
@@ -104,7 +108,7 @@ elements! **Warning: Innovation & Research Project in MCT is always a technical 
         - search an rescue datasets SARD
         - human detection in UAV imagery
 - What case will you work out?
-    - A swarm of crazyflie drones searches a perimeter for: ...
+    - A swarm of Crazyflie drones searches a perimeter for: ...
         1. a single non human target ...
         2. multiple non human targets ...
         3. a single person in distress ...
@@ -113,34 +117,47 @@ elements! **Warning: Innovation & Research Project in MCT is always a technical 
         as efficiently as possible.
 - Which evaluation or comparison criteria will you use?
     - always over multiple trials
-    1. a single human piloted crazyflie vs a swarm AI of crazyflies for a single target, criteria: average time to target over multiple trials.
-    2. a group of mock rescuers vs that same group of mock rescuers assisted by the crazyflie swarm for multiple targets, criteria: average time to targets over multiple trials.
+    1. a single human piloted Crazyflie vs a swarm AI of Crazyflies for a single target, criteria: average time to target over multiple trials.
+    2. a group of mock rescuers vs that same group of mock rescuers assisted by the Crazyflie swarm for multiple targets, criteria: average time to targets over multiple trials.
 - What are the minimal requirements of your project / app?
-    - a swarm AI of crazyflies that can find a single non human target more efficiently then a single human pilot.
+    - a swarm AI of Crazyflies that can find a single non human target more efficiently then a single human pilot.
 - How do you make sure your application is relevant?
     - literature study
     - interview with field experts
     - survey (colleagues lifeguards Bredene)
 
-<Add your technical plan of approach and mindmaps>
+![brainstorm](./images/brainstorm.png)
 
 ### 2.5 TECHNICAL RESEARCH: SUCCESS CRITERIA
 Now that you have well defined how your project will be made, it is important to define some goals and
-success criteria. When is your project finished according to your standards? Describe a few of your
-results that you want to achieve. Use a list.
-What will your technical demo or proof-of-concept contain? When is your project finished? What if
-you’re done in a few weeks, and you want to do some alternatives?
-<Add your goals and success criteria here, in bullet points with extra explanation if necessary>
+success criteria.
+- When is your project finished according to your standards? Describe a few of your results that you want to achieve. Use a list.
+    - [ ] drones can detect targets
+    - [ ] drones can communicate with eachother (swarm AI)
+    - [ ] drones explore the perimeter
+        - using search algorithms
+        - coordinating with swarm AI
+    - [ ] drones can execute case [1.](), **A swarm of Crazyflie drones searches a perimeter for a single target faster than a human operated drone**
+        - extra use cases [2.]() [3.]() [4.]()
 
-
-
-**video topic = Swarm AI**
+- What will your technical demo or proof-of-concept contain?
+    - executing (or showing a video of) the last completed use case 
+- When is your project finished?
+    - after completing use case [4.]()
+- What if you’re done in a few weeks, and you want to do some alternatives?
+    - as mentioned previously: extra use cases [2.]() [3.]() [4.]()
 
 ## Sources
 
-1. S. Sambolek, M. Ivasic-Kos. "SEARCH AND RESCUE IMAGE DATASET FOR PERSON DETECTION - SARD." SEARCH AND RESCUE IMAGE DATASET FOR PERSON DETECTION - SARD | IEEE DataPort. Accessed: Feb. 16, 2026. [Online.] Available: https://ieee-dataport.org/documents/search-and-rescue-image-dataset-person-detection-sard
-2. S. Sambolek, M. Ivasic-Kos. "Automatic Person Detection in Search and Rescue Operations Using Deep CNN Detectors." Automatic Person Detection in Search and Rescue Operations Using Deep CNN Detectors | IEEE Journals & Magazine | IEEE Xplore. Accessed: Feb. 16, 2026. [Online.] Available: https://ieeexplore.ieee.org/document/9369386
-3. D. P. Simões, H. C. de Oliveira, D. R. Pereira. "Unicamp-UAV: An open dataset for human detection in UAV imagery." Unicamp-UAV: An open dataset for human detection in UAV imagery - ScienceDirect. Accessed: Feb. 16, 2026. [Online.] Available: https://www.sciencedirect.com/science/article/pii/S0924271625004149
-4. "Loco Swarm bundle - Crazyflie 2.1+." Loco Swarm bundle - Crazyflie 2.1+ – Bitcraze Store. Accessed: Feb. 16, 2026. [Online.] Available: https://store.bitcraze.io/products/loco-swarm-bundle
-5. "AI deck 1.1." AI deck 1.1 | Bitcraze. Accessed: Feb. 16, 2026. [Online.] Available: https://www.bitcraze.io/products/ai-deck/
-6. "Flow deck v2." Flow deck v2 | Bitcraze. Accessed: Feb. 16, 2026. [Online.] Available: https://www.bitcraze.io/products/flow-deck-v2/
+#### SEARCH AND RESCUE IMAGE DATASET FOR PERSON DETECTION - SARD.
+- S. Sambolek, M. Ivasic-Kos. "SEARCH AND RESCUE IMAGE DATASET FOR PERSON DETECTION - SARD." SEARCH AND RESCUE IMAGE DATASET FOR PERSON DETECTION - SARD | IEEE DataPort. Accessed: Feb. 16, 2026. [Online.] Available: https://ieee-dataport.org/documents/search-and-rescue-image-dataset-person-detection-sard
+#### Automatic Person Detection in Search and Rescue Operations Using Deep CNN Detectors.
+- S. Sambolek, M. Ivasic-Kos. "Automatic Person Detection in Search and Rescue Operations Using Deep CNN Detectors." Automatic Person Detection in Search and Rescue Operations Using Deep CNN Detectors | IEEE Journals & Magazine | IEEE Xplore. Accessed: Feb. 16, 2026. [Online.] Available: https://ieeexplore.ieee.org/document/9369386
+#### Unicamp-UAV: An open dataset for human detection in UAV imagery.
+- D. P. Simões, H. C. de Oliveira, D. R. Pereira. "Unicamp-UAV: An open dataset for human detection in UAV imagery." Unicamp-UAV: An open dataset for human detection in UAV imagery - ScienceDirect. Accessed: Feb. 16, 2026. [Online.] Available: https://www.sciencedirect.com/science/article/pii/S0924271625004149
+#### Loco Swarm bundle - Crazyflie 2.1+.
+- "Loco Swarm bundle - Crazyflie 2.1+." Loco Swarm bundle - Crazyflie 2.1+ – Bitcraze Store. Accessed: Feb. 16, 2026. [Online.] Available: https://store.bitcraze.io/products/loco-swarm-bundle
+#### AI deck 1.1.
+- "AI deck 1.1." AI deck 1.1 | Bitcraze. Accessed: Feb. 16, 2026. [Online.] Available: https://www.bitcraze.io/products/ai-deck/
+#### Flow deck v2.
+- "Flow deck v2." Flow deck v2 | Bitcraze. Accessed: Feb. 16, 2026. [Online.] Available: https://www.bitcraze.io/products/flow-deck-v2/
