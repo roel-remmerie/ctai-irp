@@ -147,17 +147,160 @@ success criteria.
 - What if you’re done in a few weeks, and you want to do some alternatives?
     - as mentioned previously: extra use cases [2.]() [3.]() [4.]()
 
-## Sources
+### 2.6 HANDING IN YOUR RESEARCH PROJECT
 
-#### SEARCH AND RESCUE IMAGE DATASET FOR PERSON DETECTION - SARD.
-- S. Sambolek, M. Ivasic-Kos. "SEARCH AND RESCUE IMAGE DATASET FOR PERSON DETECTION - SARD." SEARCH AND RESCUE IMAGE DATASET FOR PERSON DETECTION - SARD | IEEE DataPort. Accessed: Feb. 16, 2026. [Online.] Available: https://ieee-dataport.org/documents/search-and-rescue-image-dataset-person-detection-sard
-#### Automatic Person Detection in Search and Rescue Operations Using Deep CNN Detectors.
-- S. Sambolek, M. Ivasic-Kos. "Automatic Person Detection in Search and Rescue Operations Using Deep CNN Detectors." Automatic Person Detection in Search and Rescue Operations Using Deep CNN Detectors | IEEE Journals & Magazine | IEEE Xplore. Accessed: Feb. 16, 2026. [Online.] Available: https://ieeexplore.ieee.org/document/9369386
-#### Unicamp-UAV: An open dataset for human detection in UAV imagery.
-- D. P. Simões, H. C. de Oliveira, D. R. Pereira. "Unicamp-UAV: An open dataset for human detection in UAV imagery." Unicamp-UAV: An open dataset for human detection in UAV imagery - ScienceDirect. Accessed: Feb. 16, 2026. [Online.] Available: https://www.sciencedirect.com/science/article/pii/S0924271625004149
-#### Loco Swarm bundle - Crazyflie 2.1+.
-- "Loco Swarm bundle - Crazyflie 2.1+." Loco Swarm bundle - Crazyflie 2.1+ – Bitcraze Store. Accessed: Feb. 16, 2026. [Online.] Available: https://store.bitcraze.io/products/loco-swarm-bundle
-#### AI deck 1.1.
-- "AI deck 1.1." AI deck 1.1 | Bitcraze. Accessed: Feb. 16, 2026. [Online.] Available: https://www.bitcraze.io/products/ai-deck/
-#### Flow deck v2.
-- "Flow deck v2." Flow deck v2 | Bitcraze. Accessed: Feb. 16, 2026. [Online.] Available: https://www.bitcraze.io/products/flow-deck-v2/
+In the end of the Innovation & Research Project, you should hand in all of these required things:
+- User manual
+    - How can someone use the project that you have developed?
+    - What are all the things that one should think of when using this project?
+- Installation manual
+    - How can someone install this project on their own setup?
+    - Where are the pitfalls in the installation?
+- Source code
+    - During the development of an application, or when writing any code, hand everything in.
+- A few more optional things:
+    - Technical schema’s
+    - Graphical representations of technologies
+    - Other illustrations that can be interested for your project
+    - Video’s of your demonstration that you created
+
+Talk to your coach about what to hand in in your situation.
+
+### 2.7 Bachelors Thesis
+
+not applicable
+
+### 2.8 SOURCES
+
+#### 2.8.1 Research related
+
+1. S. Sambolek, M. Ivasic-Kos. "SEARCH AND RESCUE IMAGE DATASET FOR PERSON DETECTION - SARD." SEARCH AND RESCUE IMAGE DATASET FOR PERSON DETECTION - SARD | IEEE DataPort. Accessed: Feb. 16, 2026. [Online.] Available: https://ieee-dataport.org/documents/search-and-rescue-image-dataset-person-detection-sard
+2. S. Sambolek, M. Ivasic-Kos. "Automatic Person Detection in Search and Rescue Operations Using Deep CNN Detectors." Automatic Person Detection in Search and Rescue Operations Using Deep CNN Detectors | IEEE Journals & Magazine | IEEE Xplore. Accessed: Feb. 16, 2026. [Online.] Available: https://ieeexplore.ieee.org/document/9369386
+3. D. P. Simões, H. C. de Oliveira, D. R. Pereira. "Unicamp-UAV: An open dataset for human detection in UAV imagery." Unicamp-UAV: An open dataset for human detection in UAV imagery - ScienceDirect. Accessed: Feb. 16, 2026. [Online.] Available: https://www.sciencedirect.com/science/article/pii/S0924271625004149
+4. "Loco Swarm bundle - Crazyflie 2.1+." Loco Swarm bundle - Crazyflie 2.1+ – Bitcraze Store. Accessed: Feb. 16, 2026. [Online.] Available: https://store.bitcraze.io/products/loco-swarm-bundle
+5. "AI deck 1.1." AI deck 1.1 | Bitcraze. Accessed: Feb. 16, 2026. [Online.] Available: https://www.bitcraze.io/products/ai-deck/
+6. "Flow deck v2." Flow deck v2 | Bitcraze. Accessed: Feb. 16, 2026. [Online.] Available: https://www.bitcraze.io/products/flow-deck-v2/
+7. "Mind mapping for everyone." MindMeister | Online Mind Mapping & Brainstorming Software. Accessed: Feb. 17, 2026. [Online.] Available: https://www.mindmeister.com/pages/home-version-1
+
+#### 2.8.2 IEEE related
+
+1. J. Caulfield. "IEEE Website Citation | Guide with Examples." IEEE Website Citation | Guide with Examples. Accessed: Feb. 14, 2026. [Online.] Available: https://www.scribbr.com/ieee/ieee-website-citation/
+2. IEEE Author Center. "IEEE Editorial Style Manual." IEEE Editorial Style Manual - IEEE Author Center Journals. Accessed: Feb. 14, 2026. [Online.] Available: https://journals.ieeeauthorcenter.ieee.org/your-role-in-article-production/ieee-editorial-style-manual/
+3. IEEE Author Center. "Refrence Guide." IEEE Reference Style Guide for Authors - Google Documenten. Accessed: Feb. 14, 2026. [Online.] Available: https://docs.google.com/document/d/1j1L96U2NagwWI9MEVDNVKt9pXxRzTH7h3krI3Mb6wZE/edit?tab=t.0
+
+#### 2.8.3 Python sources
+
+these were used to create a script that helps with IEEE style sources
+
+```python
+from bs4 import BeautifulSoup
+from urllib.request import urlopen
+from datetime import datetime
+import pyperclip
+import os
+
+REQ_AUTHOR = "Author: "
+
+AUTHOR_EXIT = "none"
+
+def get_authors() -> str:
+    authors = ""
+    author = input(REQ_AUTHOR)
+
+    while author != AUTHOR_EXIT:
+        authors += author        
+        author = input(REQ_AUTHOR)
+        if author != AUTHOR_EXIT:
+            authors += ", "
+
+    if authors != "":
+        authors += ". "
+
+    return authors
+
+REQ_URL = "URL: "
+
+def get_url() -> tuple[str, str]:
+    url = input(REQ_URL)
+    try:
+        soup = BeautifulSoup(urlopen(url), features="html.parser")
+        website_title = soup.title.get_text()
+        return url, website_title
+    except Exception:
+        print("could not read page")
+        website_title = input("Website Title: ")
+        return url, website_title
+
+months = {
+    1: "Jan",
+    2: "Feb",
+    3: "Mar",
+    4: "Apr",
+    5: "May",
+    6: "Jun",
+    7: "Jul",
+    8: "Aug",
+    9: "Sep",
+    10: "Oct",
+    11: "Nov",
+    12: "Dec"
+}
+
+ieee_citation = "{authors}\"{page_title}\" {website_title}. Accessed: {month}. {day}, {year}. [Online.] Available: {url}"
+
+def get_citation():
+    authors = get_authors()
+    page_title = input("Title: ")
+    url, website_title = get_url()
+    now = datetime.now()
+
+    citation = ieee_citation.format(
+        authors=authors,
+        page_title=page_title,
+        website_title=website_title,
+        month = months[now.month],
+        day = now.day,
+        year = now.year,
+        url = url
+    )
+
+    return citation
+
+if __name__ == "__main__":
+    try:
+        while True:
+            os.system('cls' if os.name == 'nt' else 'clear')
+            print("IEEE Citation\ninput ^C to quit")
+            citation = get_citation()
+            print(citation)
+            pyperclip.copy(citation)
+            input("press Enter to continue ...")
+    except KeyboardInterrupt:
+        pass
+    except Exception as e:
+        print(e) 
+```
+
+1. N. Mikhailov. "Python.gitignore." gitignore/Python.gitignore at main · github/gitignore · GitHub. Accessed: Feb. 14, 2026. [Online.] Available: https://github.com/github/gitignore/blob/main/Python.gitignore
+2. S. Kumar. "Extract title from a webpage using Python." Extract title from a webpage using Python - GeeksforGeeks. Accessed: Feb. 14, 2026. [Online.] Available: https://www.geeksforgeeks.org/python/extract-title-from-a-webpage-using-python/
+3. IlanL, K. Kundu. "BeautifulSoup different parsers." python 3.x - BeautifulSoup different parsers - Stackoverflow. Accessed: Feb. 14, 2026. [Online.] Available: https://stackoverflow.com/questions/55880415/beautifulsoup-different-parsers
+4. Soviut, R. Duffield, T. Merouane, P. Mortensen. "How can I clear the interpreter console?" python - How can I clear the interpreter console? - Stack Overflow. Accessed: Feb. 14, 2026. [Online.] Available: stackoverflow.com/questions/517970/how-can-i-clear-the-interpreter-console
+5. D. Masquelier, atomizer, D. Lowe, Dreftymac. "How do I copy a string to the clipboard?" python - How do I copy a string to the clipboard? - Stack Overflow. Accessed: Feb. 14, 2026. [Online.] Available: https://stackoverflow.com/questions/579687/how-do-i-copy-a-string-to-the-clipboard
+6. Asweigart. "Pyperclip." GitHub - asweigart/pyperclip: Python module for cross-platform clipboard functions.. Accessed: Feb. 14, 2026. [Online.] Available: https://github.com/asweigart/pyperclip
+
+#### 2.8.4 Hounourable mentions
+
+1. Greetje Desnerck
+    - assisted with brainstorming
+
+## 3 SIGNATURE
+
+I hereby declare that I will complete my project according to the defined planning like above.
+
+Your (digital) signature.
+
+![signature](./images/signature.png)
+
+Surname and name: Roel Remmerie
+
+Date: 17/02/2026
