@@ -64,7 +64,7 @@ Read, read and read some sources and fetch information. Keep track of all the so
 
 This is your main research question: What question do you wish to research and answer?
 
-**What is the best use of drone swarm AI in Search and rescue operations**
+**How can drone swarm AI be used in search and rescue operations?**
 
 ### 2.3 SUB QUESTIONS
 
@@ -78,12 +78,25 @@ questions if needed.
 - What is drone swarm AI?
     - What is a drone?
     - What is swarm AI?
-- Where and When can a drone operate?
 - What are search and rescue operations (SAR Ops)?
-- How can a drone detect a target
-- How can drone swarm AI be used in SAR Ops?
-- What are the risks of using drone swarm AI in SAR Ops?
-- What are the advantages of using drone swarm AI in SAR Ops?
+- How are drones currently used in SAR Ops?
+    - What are the constraints of a drone in SAR Ops?
+    - How does a drone detect a target?
+    - How does a rescuer receive information from a drone?
+- How do drones form a swarm AI?
+    - How does a drone cummunicate with another drone?
+    - How can the position of a drone relative to ... be determined?
+        - the environment
+        - another drone
+    - Which computations are deployed where?
+- What is an easily deployable and fast navigation/exploration algorithm for multiple explorers?
+- What are the constraints of a drone swarm AI in SAR Ops?
+- How can a drone swarm AI detect a target?
+    - How can a drone swarm AI not detect the same target as multiple seperate targets 
+- How can a drone swarm ... a central intelligent system and rescuer?
+    - receive instructions from
+    - relay relevant information to
+- What are the major differences between the technical research and real life use cases?
 
 ### 2.4 THE RESEARCH PROJECT – TECHNICAL RESEARCH
 Goal: Your research question will be technically implemented individually (or in a team of two people)
@@ -101,51 +114,172 @@ experts/your coach.
 What are you going to create as technical research? Make sure your context is well defined, go into
 detail where necessary. Use a plan of approach and include images. Don’t forget any important
 elements! **Warning: Innovation & Research Project in MCT is always a technical realisation. Only including a literature study is not enough.**
-- Which data will you use?
-    - greyscale images
-    - none for non human target
-    - for human target
-        - search an rescue datasets SARD
-        - human detection in UAV imagery
-- What case will you work out?
-    - A swarm of Crazyflie drones searches a perimeter for: ...
-        1. a single non human target ...
-        2. multiple non human targets ...
-        3. a single person in distress ...
-        4. multiple people in distress ...
-    
-        as efficiently as possible.
-- Which evaluation or comparison criteria will you use?
-    - always over multiple trials
-    1. a single human piloted Crazyflie vs a swarm AI of Crazyflies for a single target, criteria: average time to target over multiple trials.
-    2. a group of mock rescuers vs that same group of mock rescuers assisted by the Crazyflie swarm for multiple targets, criteria: average time to targets over multiple trials.
-- What are the minimal requirements of your project / app?
-    - a swarm AI of Crazyflies that can find a single non human target more efficiently then a single human pilot.
-- How do you make sure your application is relevant?
-    - literature study
-    - interview with field experts
-    - survey (colleagues lifeguards Bredene)
 
-![brainstorm](./images/brainstorm.png)
+#### Which data will you use?
+- greyscale images
+- none for non human target
+- for human target
+    - search an rescue datasets SARD
+    - human detection in UAV imagery
+#### What case will you work out?
+- materials
+    - 1 x Loco Swarm bundle - Crazyflie 2.1+
+        - 8 x Loco positioning nodes
+        - 10 x Loco positioning deck
+        - 10 x Crazyflie 2.1+
+        - 3 x Crazyradio 2.0
+        - 20 x 350mAh LiPo battery
+        - 10 x 500mA LiPo USB charger
+    - 8 x AI deck 1.1
+    - 8 x Flow deck v2
+    - a central computation unit (computer, laptop, raspberry pi)
+    - a screen for frontend information (included in computation device or seerate in case of raspberry pi)
+- Crazyflie sepcs/limitations
+    - controllable range = 1km -> maximum perimeter is circle where r = 1km
+    - drone body size = 7cm x 7cm
+    - average drone fly time 7 minutes
+    - recommended to not fly outdoors
+    - controllable by
+        - on device programming/instructions
+        - controller based
+        - phone based
+        - radio based
+    - danger of hitting obstacles, walls
+- location
+    - large indoor space with no obstacles (like: Kortrijk sports centre, Kortrijk expo, Depart kortrijk, Bruges sportsinnovation campus, Kortrijk weide parking 3 storage unit and maybe Kortrijk weide energy lab)
+- target
+    - recgonlizable object (like: trafic cone or sports cones)
+    - human (acting in distress)
+- proof of concept
+    - a rescuer uses a frontend app to ... with the predifined materials at a predifined location-like
+        - set a searchable perimeter
+        - set a number of missing targets
+        - send out the drone swarm to search the missing targets withtin the searchable perimeter
+        - recall the drone swarm
+        - receive information from the central compute instance
+    - the central compute instance
+        - houses the frontend application
+        - houses the navigation/exploration algorithm for multiple explorers
+        - receives ...
+            - the drones' locations
+            - found targets' locations
+            - drone images of the found targets'
+            and uses this information to
+            - display in the frontend app
+            - make new navigation/movement decisions
+        - sends
+            - instructions to the drones on where to move
+    - a drone in the swarm
+        - receives instructions from the central compute instance
+        - runs an ai model to detect targets using the ai deck
+            - it inspects a certain area with it's camera
+        - runs the flow deck software to determine it's postion based on movement
+        - (extra) communcates with other drones for better relative positioning
+#### Which evaluation or comparison criteria will you use?
+- average time to target(s) found compared to a human piloted drone
+- amount of targets detected/are all targets detected? (more compared to a human piloted drone)
+- amount of surface arrea flown over that has already been flown over compared to a human piloted drone
+#### What are the minimal requirements of your project / app?
+- in the context of the use case a swarm AI of Crazyflies can find a single non human target more efficiently then a single human piloted Crazyflie.
+#### How do you make sure your application is relevant?
+- literature study
+- interview with field experts
+- survey (colleagues lifeguards Bredene)
+#### Technical plan of approach
+- [ ] **09/02 - 15/02**
+    - [ ] come up with research question
+    - [ ] fill in google forms
+    - [ ] search sources for contractplan
+- [ ] **16/02 - 22/02**
+    - [ ] create first draft of contractplan
+    - [ ] request first draft feedback
+    - [ ] implement first draft feedback into second draft
+- [ ] **23/02 - 01/03**
+    - [ ] hand in contractplan
+    - [ ] lifelong learning
+        - [ ] create media post strategy/template/plan
+    - [ ] literature review
+        - [ ] collect literature
+        - [ ] assess & select literature
+        - [ ] preperation
+- [ ] **02/03 - 08/03**
+    - [ ] literature review
+        - [ ] synthesise literature
+        - [ ] start literature review document
+- [ ] **09/03 - 15/03**
+    - [ ] literature review
+        - [ ] synthesise literature
+        - [ ] finalise literature review document
+    - [ ] videos
+        - [ ] review leho material
+        - [ ] create video playlist outline/plan
+- [ ] **16/03 - 22/03**
+    - [ ] technical research
+        - [ ] relevancy check
+    - [ ] videos
+        - [ ] review leho material
+        - [ ] continue video playlist outline/plan
+        - [ ] start recordings
+- [ ] **23/03 - 29/03**
+    - [ ] technical research
+        - [ ] relevancy check
+        - [ ] drone experimentation
+    - [ ] videos
+        - [ ] continue recordings
+- [ ] **30/03 - 05/04**
+    - [ ] technical research
+        - [ ] drone swarm experimentation
+    - [ ] videos
+        - [ ] finalise recordings
+- [ ] **06/04 - 12/04**
+    - [ ] technical research
+        - [ ] start frontend development
+        - [ ] start backend development (central compute)
+    - [ ] videos
+        - [ ] start editing videos
+- [ ] **13/04 - 19/04**
+    - [ ] technical research
+        - [ ] continue frontend development
+        - [ ] continue backend development (central compute)
+    - [ ] videos
+        - [ ] finalise editing videos
+- [ ] **20/04 - 26/04**
+    - [ ] hand in swarm AI educational video
+    - [ ] hand in literature review
+    - [ ] technical research
+        - [ ] start work on drone requirements
+- [ ] **27/04 - 03/05**
+    - [ ] technical research
+        - [ ] finalise drone requirements
+        - [ ] integrate frontend, backend (central compute) and drones
+        - [ ] start **2.6** deliverables
+- [ ] **04/05 - 10/05**
+    - [ ] technical research
+        - [ ] **2.6** deliverables
+        - [ ] work on extra's
+- [ ] **11/05 - 17/05**
+    - [ ] demo
 
 ### 2.5 TECHNICAL RESEARCH: SUCCESS CRITERIA
 Now that you have well defined how your project will be made, it is important to define some goals and
 success criteria.
 - When is your project finished according to your standards? Describe a few of your results that you want to achieve. Use a list.
-    - [ ] drones can detect targets
-    - [ ] drones can communicate with eachother (swarm AI)
-    - [ ] drones explore the perimeter
-        - using search algorithms
-        - coordinating with swarm AI
-    - [ ] drones can execute case [1.](), **A swarm of Crazyflie drones searches a perimeter for a single target faster than a human operated drone**
-        - extra use cases [2.]() [3.]() [4.]()
+    - [ ] a rescuer can use a frontend app connected to a compute instance with frontend functionality as defined in the proof of concept
+    - [ ] a compute instance can communicate with Crazyflie drones using the flow deck radio
+    - [ ] a crazyflie drone can detect a non human target using the AI deck
+    - [ ] the central compute sends instructions to the drones to move in certain directions to cover all the ground in the perimeter
+        - using a navigation/exploration algorithm for multiple explorers
+    - [ ] in the context of the use case a swarm AI of Crazyflies can find a single target more efficiently then a single human piloted Crazyflie.
+        - average time to target(s) must be lower then the human pilot
+        - amount of targets detected and correctly located must be higher then the human pilot
+        - amount of surface arrea flown over that has already been flown over must be smaller then the human pilot
 
 - What will your technical demo or proof-of-concept contain?
-    - executing (or showing a video of) the last completed use case 
-- When is your project finished?
-    - after completing use case [4.]()
+    - the proof of concept defined previously in **2.4** as the use case
 - What if you’re done in a few weeks, and you want to do some alternatives?
-    - as mentioned previously: extra use cases [2.]() [3.]() [4.]()
+    - [ ] use multiple targets
+    - [ ] use human targets
+    - [ ] the crazyflie drones can communicate with eachother using either bluetooth BLE or radio signals
 
 ### 2.6 HANDING IN YOUR RESEARCH PROJECT
 
@@ -181,6 +315,7 @@ not applicable
 5. "AI deck 1.1." AI deck 1.1 | Bitcraze. Accessed: Feb. 16, 2026. [Online.] Available: https://www.bitcraze.io/products/ai-deck/
 6. "Flow deck v2." Flow deck v2 | Bitcraze. Accessed: Feb. 16, 2026. [Online.] Available: https://www.bitcraze.io/products/flow-deck-v2/
 7. "Mind mapping for everyone." MindMeister | Online Mind Mapping & Brainstorming Software. Accessed: Feb. 17, 2026. [Online.] Available: https://www.mindmeister.com/pages/home-version-1
+8. "FAQ" FAQ | Bitcraze. Accessed: Feb. 22, 2026. [Online.] Available: https://www.bitcraze.io/support/f-a-q/
 
 #### 2.8.2 IEEE related
 
@@ -292,6 +427,8 @@ if __name__ == "__main__":
 
 1. Greetje Desnerck
     - assisted with brainstorming
+2. Nathan & Paula
+    - gave contractplan pointers
 
 ## 3 SIGNATURE
 
@@ -303,4 +440,4 @@ Your (digital) signature.
 
 Surname and name: Roel Remmerie
 
-Date: 17/02/2026
+Date: 22/02/2026
