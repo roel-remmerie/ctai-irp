@@ -17,7 +17,7 @@ def run_sequence(scf):
     with MotionCommander(scf, default_height=1) as mc:
         time.sleep(1.0)
         mc.turn_right(360)
-        time.sleep(0.5)
+        time.sleep(1.0)
 
 
 if __name__ == "__main__":
