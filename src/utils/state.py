@@ -1,4 +1,5 @@
 SCAN = "scan"
+BUILD = "build"
 SEARCH = "search"
 RECALL = "recall"
 EMERGENCY = "emergency"
