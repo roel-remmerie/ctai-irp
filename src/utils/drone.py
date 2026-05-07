@@ -5,10 +5,11 @@ from cflib.crazyflie.syncCrazyflie import SyncCrazyflie
 FLIGHT_HEIGHT = 0.75 # Height at which a drone will fly
 Z_MIN = 0.0 # The lowest height a drone can go (ground level)
 
-V_DRONE = 0.20 # the speed of a drone (in meters/second)
+V_XY_DRONE = 0.10 # the speed of a drone (in meters/second)
+V_Z_DRONE = 0.20 # the speed of a drone (in meters/second)
 
-T_TAKEOFF = FLIGHT_HEIGHT / V_DRONE # time it takes a drone to go from Z_MIN to FLIGHT_HEIGHT
-T_LANDING = FLIGHT_HEIGHT / V_DRONE # time it takes a drone to go from FLIGHT_HEIGHT to Z_MIN
+T_TAKEOFF = FLIGHT_HEIGHT / V_Z_DRONE # time it takes a drone to go from Z_MIN to FLIGHT_HEIGHT
+T_LANDING = FLIGHT_HEIGHT / V_Z_DRONE # time it takes a drone to go from FLIGHT_HEIGHT to Z_MIN
 
 class DroneCommand:
     @staticmethod
@@ -46,8 +47,8 @@ class DroneCommand:
     @staticmethod
     def run_step(scf: SyncCrazyflie, move: tuple[tuple[float, float], float, float]):
         (x_pn, y_pn), delta_p, max_swarm_delta = move
-        duration = delta_p / V_DRONE
-        wait_time = max_swarm_delta / V_DRONE
+        duration = delta_p / V_XY_DRONE
+        wait_time = max_swarm_delta / V_XY_DRONE
 
         commander = scf.cf.high_level_commander
         commander.go_to(x_pn,y_pn,FLIGHT_HEIGHT,0,duration)
