@@ -43,10 +43,10 @@ if __name__ == '__main__':
 
     # uris=["radio://0/80/2M/E7E7E7E7E7"]
 
-    # factory = CachedCfFactory(rw_cache='./cache')
-    # with Swarm(uris, factory=factory) as swarm:
-    #     print('Connected to Crazyflies')
-    #     # swarm.parallel_safe(light_check)
-    #     swarm.reset_estimators()
+    factory = CachedCfFactory(rw_cache='./cache')
+    with Swarm(uris, factory=factory) as swarm:
+        print('Connected to Crazyflies')
+        swarm.parallel_safe(light_check)
+        swarm.reset_estimators()
 
-    #     swarm.sequential(hover_sequence)
+        swarm.sequential(hover_sequence)
