@@ -2,6 +2,7 @@ import math
 import yaml
 import copy
 import random
+import copy
 
 import numpy as np
 from scipy.optimize import linear_sum_assignment
@@ -85,6 +86,7 @@ class NavigationService:
         self.drones_pn: Dict[str, Position2D] = {}
 
         self.routes: Dict[str, Route] = {}
+        self.full_routes: Dict[str, Route] = {}
 
     def set_drone_positions(self, positions: dict[str, SwarmPosition]):
         drones_p_none: Dict[str, Position2D] = {drone_id: (p.x, p.y) for drone_id, p in positions.items()}
@@ -229,6 +231,7 @@ class NavigationService:
             routes[drone_id] = route
 
         self.routes = routes
+        self.full_routes = copy.deepcopy(routes)
 
     def get_step(self) -> Dict[str, List[Tuple[Position2D, float, float]]]:
         self.drones_pc = copy.deepcopy(self.drones_pn)

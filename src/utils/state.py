@@ -5,8 +5,11 @@ RECALL = "recall"
 EMERGENCY = "emergency"
 
 CONNECTED = "connected"
-UNAVAILABLE = "unavailable"
 
 QUIT = "quit"
 
 DISCONNECT = "disconnect"
+
+MAP_HIDDEN_STATES = [DISCONNECT, SCAN]
+
+SWARM_COMMANDS = [BUILD, SEARCH, RECALL, EMERGENCY, DISCONNECT]

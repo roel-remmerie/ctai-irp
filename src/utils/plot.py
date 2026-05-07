@@ -16,7 +16,7 @@ class Plot():
             xs = [p[0] for p in route]
             ys = [p[1] for p in route]
 
-            current = navigation.drone_locations[drone_id]
+            current = navigation.drones_pc[drone_id]
             start = route[0]
             color = navigation.color_dict[drone_id]
 

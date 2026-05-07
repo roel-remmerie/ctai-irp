@@ -30,23 +30,23 @@ buttons: list[CustomButton] = buttons
 running = True
 
 class Render():
-    @classmethod
-    def _button(_, button: CustomButton):
+    @staticmethod
+    def _button(button: CustomButton):
         pygame.draw.rect(screen, BUTTON_COLOR, button)
         text_color = ACTIVE_TEXT_COLOR if button.active else INACTIVE_TEXT_COLOR
         text_surface = font.render(button.text, True, text_color)
         text_rect = text_surface.get_rect(center=button.center)
         screen.blit(text_surface, text_rect)
 
-    @classmethod
-    def _buttons(_):
+    @staticmethod
+    def _buttons():
         for i in range(len(buttons)):
             buttons[i].active = buttons[i].text in button_state_mapping[swarm.state]
             Render._button(buttons[i])
 
-    @classmethod
-    def _drones(_):
-        if swarm.navigation:
+    @staticmethod
+    def _drones():
+        if swarm.navigation and not swarm.state in MAP_HIDDEN_STATES:
             Plot._drone_routes(IMAGE_URI, (600, 640), swarm.navigation)
             screen.blit(pygame.image.load(IMAGE_URI).convert(), (40, 40))
         

@@ -39,11 +39,16 @@ class DroneCommand:
         commander.stop()
 
     @staticmethod
-    def run_step(scf: SyncCrazyflie, move: tuple[float, float, float, float]):
-        x_p1, y_p1, delta_p1_p0, max_swarm_delta = move
-        duration = delta_p1_p0 / V_DRONE
+    def emergency(scf: SyncCrazyflie):
+        commander = scf.cf.high_level_commander
+        commander.stop()
+
+    @staticmethod
+    def run_step(scf: SyncCrazyflie, move: tuple[tuple[float, float], float, float]):
+        (x_pn, y_pn), delta_p, max_swarm_delta = move
+        duration = delta_p / V_DRONE
         wait_time = max_swarm_delta / V_DRONE
 
         commander = scf.cf.high_level_commander
-        commander.go_to(x_p1,y_p1,FLIGHT_HEIGHT,0,duration)
+        commander.go_to(x_pn,y_pn,FLIGHT_HEIGHT,0,duration)
         time.sleep(wait_time)
