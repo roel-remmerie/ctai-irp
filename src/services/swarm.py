@@ -67,7 +67,7 @@ class SwarmService():
                         swarm.parallel_safe(DroneCommand.land)
                         self.state = CONNECTED
                     elif command == EMERGENCY:
-                        swarm.parallel_safe(DroneCommand.emergency)
+                        swarm.parallel_safe(DroneCommand.stop_rotors)
                         break
                     elif command == DISCONNECT:
                         if self.state != SEARCH:

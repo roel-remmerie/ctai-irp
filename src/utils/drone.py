@@ -2,13 +2,13 @@ import time
 
 from cflib.crazyflie.syncCrazyflie import SyncCrazyflie
 
-FLIGHT_HEIGHT = 0.5 # Height at which a drone will fly
+FLIGHT_HEIGHT = 0.75 # Height at which a drone will fly
 Z_MIN = 0.0 # The lowest height a drone can go (ground level)
 
-T_TAKEOFF = 2.0 # time it takes a drone to go from Z_MIN to FLIGHT_HEIGHT
-T_LANDING = 2.0 # time it takes a drone to go from FLIGHT_HEIGHT to Z_MIN
+V_DRONE = 0.20 # the speed of a drone (in meters/second)
 
-V_DRONE = 0.25 # the speed of a drone (in meters/second)
+T_TAKEOFF = FLIGHT_HEIGHT / V_DRONE # time it takes a drone to go from Z_MIN to FLIGHT_HEIGHT
+T_LANDING = FLIGHT_HEIGHT / V_DRONE # time it takes a drone to go from FLIGHT_HEIGHT to Z_MIN
 
 class DroneCommand:
     @staticmethod
@@ -39,7 +39,7 @@ class DroneCommand:
         commander.stop()
 
     @staticmethod
-    def emergency(scf: SyncCrazyflie):
+    def stop_rotors(scf: SyncCrazyflie):
         commander = scf.cf.high_level_commander
         commander.stop()
 
