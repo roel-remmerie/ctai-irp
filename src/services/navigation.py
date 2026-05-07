@@ -46,6 +46,9 @@ Y_MAX = 0.0 # northern, y axis
 
 # numbder of search nodes along the x/y axis
 
+NODE_0_X_OFFSET = 0.2
+nodes[0]["x"] += NODE_0_X_OFFSET
+
 NX_SEARCH_NODES = math.ceil((nodes[6]["x"] - nodes[0]["x"] - X_MIN - X_MAX) * X_PRECISION)
 NY_SEARCH_NODES = math.ceil((nodes[6]["y"] - nodes[0]["y"] - Y_MIN - Y_MAX) * Y_PRECISION)
 
