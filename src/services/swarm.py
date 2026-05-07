@@ -60,8 +60,11 @@ class SwarmService():
                         self.navigation.set_drone_positions(positions)
                         self.navigation.build_routes()
                     elif command == SEARCH:
+                        print("light check")
                         swarm.parallel_safe(DroneCommand.light_check)
+                        print("takeoff")
                         swarm.parallel_safe(DroneCommand.take_off)
+                        print("takeoff succeeded")
                         self.state = SEARCH
                     elif command == RECALL:
                         swarm.parallel_safe(DroneCommand.land)
