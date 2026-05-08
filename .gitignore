@@ -218,3 +218,4 @@ __marimo__/
 # EXTRA ignorables
 
 cache
+*drone_map.png
