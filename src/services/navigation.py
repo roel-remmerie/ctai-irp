@@ -236,7 +236,7 @@ class NavigationService:
         self.routes = routes
         self.full_routes = copy.deepcopy(routes)
 
-    def get_step(self) -> Dict[str, List[Tuple[Position2D, float, float]]]:
+    def get_step(self):
         self.drones_pc = copy.deepcopy(self.drones_pn)
 
         self.drones_pn = {
@@ -258,16 +258,15 @@ class NavigationService:
 
         max_distance: float = max(distances.values())
 
-        step: Dict[str, List[Tuple[Position2D, float, float]]] = {
+        step: Dict[str, List[Tuple[Position2D, float]]] = {
             drone_id: [
                 (
                     self.drones_pn[drone_id],
-                    distances[drone_id],
-                    max_distance
+                    distances[drone_id]
                 )
             ]
             for drone_id in self.drone_ids
         }
 
-        return step
+        return step, max_distance
         
