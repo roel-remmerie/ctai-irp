@@ -39,10 +39,10 @@ Y_PRECISION = 2 # the y axis
 
 # distance a drone must keep between itself and the <cardinal direction> positioning nodes along <axis> (in meters)
 
-X_MIN = 0.5 # western, x axis
-X_MAX = 0.5 # eastern, x axis
-Y_MIN = 0.0 # southern, y axis
-Y_MAX = 0.0 # northern, y axis
+X_MIN = 1.0 # western, x axis
+X_MAX = 1.0 # eastern, x axis
+Y_MIN = 0.5 # southern, y axis
+Y_MAX = 0.5 # northern, y axis
 
 # numbder of search nodes along the x/y axis
 
