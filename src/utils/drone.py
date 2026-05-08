@@ -5,7 +5,7 @@ from cflib.crazyflie.syncCrazyflie import SyncCrazyflie
 FLIGHT_HEIGHT = 0.75 # Height at which a drone will fly
 Z_MIN = 0.0 # The lowest height a drone can go (ground level)
 
-V_XY_DRONE = 0.10 # the speed of a drone (in meters/second)
+V_XY_DRONE = 0.20 # the speed of a drone (in meters/second)
 V_Z_DRONE = 0.20 # the speed of a drone (in meters/second)
 
 T_TAKEOFF = FLIGHT_HEIGHT / V_Z_DRONE # time it takes a drone to go from Z_MIN to FLIGHT_HEIGHT
