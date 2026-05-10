@@ -56,6 +56,7 @@ source .venv/bin/activate
 7. place all the drones you will be using inside the perimeter of the positioning nodes
 8. all the drones you use must be face in the direction of +inf along the x-axis of your perimeter
 9. execute ```python main.py```
+10. check out the user manual for further info
 
 ### EXTRA feel free to change these params in root_folder_name/services/navigation.py and remove the node offset if it is not required for your node setup
 
