@@ -54,7 +54,10 @@ source .venv/bin/activate
     - each node and crazyflie must be set to **TDoa 2** (**TDoA 3** should also be possible, only use one at a time)
     - after writing the positions to the anchors, save the configuration to a yaml file named ```loco_positioning_nodes.yaml``` in the root folder
 7. place all the drones you will be using inside the perimeter of the positioning nodes
-8. all the drones you use must be face in the direction of +inf along the x-axis of your perimeter
+8. all the drones you use must be facing the positive x-axis of the coordinate system
+
+![drone orientation](./images/drone-orientation.png)
+
 9. execute ```python main.py```
 10. check out the user manual for further info
 
